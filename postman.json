@@ -1,0 +1,770 @@
+{
+	"info": {
+		"_postman_id": "c7290b92-9cc6-4c7e-884b-31f76a7ec749",
+		"name": "commodities",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test@test.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "70123123",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "joe abdel sater",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "joe1@xtnd.io",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Public",
+			"item": [
+				{
+					"name": "Fetch Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch suppliers by city and category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/cities/category/1/suppliers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"cities",
+								"category",
+								"1",
+								"suppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch cities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/cities",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"cities"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "supplier",
+					"item": [
+						{
+							"name": "get supplier orders",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/supplier/supplierOrder",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"supplier",
+										"supplierOrder"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get open requests",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/supplier/openRequests",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"supplier",
+										"openRequests"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "view order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "order_id",
+											"value": "44",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "open",
+											"description": "open/specific",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/supplier/order",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"supplier",
+										"order"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Apply to open request",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "apply",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "open",
+											"description": "open/specific",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/supplier/order/44",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"supplier",
+										"order",
+										"44"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "apply",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Apply to open request Copy",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "apply",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "open",
+											"description": "open/specific",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/supplier/order/44",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"supplier",
+										"order",
+										"44"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "apply",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "create open request",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "quantity",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "from",
+											"value": "2020-04-12 12:12:12",
+											"type": "text"
+										},
+										{
+											"key": "to",
+											"value": "2020-04-12 12:12:12",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "full_name",
+											"value": "JOEJOE",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "70157141",
+											"type": "text"
+										},
+										{
+											"key": "city_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "street",
+											"value": "my test street",
+											"type": "text"
+										},
+										{
+											"key": "building",
+											"value": "jamiil saade",
+											"type": "text"
+										},
+										{
+											"key": "address_details",
+											"value": "my address details",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/openRequest",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"openRequest"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create open request Copy",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "quantity",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "from",
+											"value": "2020-04-12 12:12:12",
+											"type": "text"
+										},
+										{
+											"key": "to",
+											"value": "2020-04-12 12:12:12",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "full_name",
+											"value": "JOEJOE",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "70157141",
+											"type": "text"
+										},
+										{
+											"key": "city_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "street",
+											"value": "my test street",
+											"type": "text"
+										},
+										{
+											"key": "building",
+											"value": "jamiil saade",
+											"type": "text"
+										},
+										{
+											"key": "address_details",
+											"value": "my address details",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/openRequest",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"openRequest"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "request from supplier",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "quantity",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "from",
+											"value": "2020-04-12 12:12:12",
+											"type": "text"
+										},
+										{
+											"key": "to",
+											"value": "2020-04-12 12:12:12",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "full_name",
+											"value": "JOEJOE",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "70157141",
+											"type": "text"
+										},
+										{
+											"key": "city_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "street",
+											"value": "my test street",
+											"type": "text"
+										},
+										{
+											"key": "building",
+											"value": "jamiil saade",
+											"type": "text"
+										},
+										{
+											"key": "address_details",
+											"value": "my address details",
+											"type": "text"
+										},
+										{
+											"key": "supplier_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/supplier/supplierOrder",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"supplier",
+										"supplierOrder"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get order applications",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Action on open application",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "apply",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "open",
+											"description": "open/specific",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/supplier/order/44",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"supplier",
+										"order",
+										"44"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "apply",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost::8888"
+		}
+	]
+}
