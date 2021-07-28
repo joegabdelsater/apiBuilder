@@ -1,4 +1,5 @@
 const http = require('http');
+const fs = require('fs');
 const {camelize, createFile, createFolder, getJson } = require('./helpers')
 const { mainDir, pageImports} = require('./constants');
 
@@ -57,6 +58,20 @@ const buildItem = (item) => {
             build(dir, outerLayer);
         } 
     })
+}
+
+const addCommand = () => {
+    var data = fs.readFileSync('../package.json', 'utf-8');
+
+    const commad = `
+    "scripts": {
+        "yllw-build" : "node ./node_modules/index.js",
+    `;
+    var newValue = data.replace(`"scripts": {`, command);
+  
+    fs.writeFileSync('../package.json', newValue, 'utf-8');
+  
+    console.log('readFileSync complete');
 }
 
 buildItem(item)
