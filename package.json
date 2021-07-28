@@ -1,11 +1,12 @@
 {
   "name": "yllw-postman-to-functions",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "A package which transforms your Postman collection in to javascript files and functions invoked using axios library",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node index.js"
+    "postinstall": "npx npm-add-script -k 'yllw-build' -v 'node ./node_modules/yllw-postman-to-functions/index.js' --force"
+
   },
   "keywords": [],
   "author": "Joe Abdel Sater",

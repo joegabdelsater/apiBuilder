@@ -7,7 +7,7 @@ const { exec } = require("child_process");
 //import and read json file
 const item = getJson('postman.json')
 //create the main directory on the root level
-createFolder('./services')
+createFolder('../services')
 
 const paramSupport = ["POST", "UPDATE"];
 const build = (dir, outerLayer) => {
@@ -76,7 +76,7 @@ const buildItem = (item) => {
 // }
 
 const addCommand = () => {
-    exec('npx npm-add-script \ -k "yllw-build" \ -v "node ./node_modules/yllw-postman-to-functions/index.js" --force', (error, stdout, stderr) => {
+    exec('', (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
             return;
