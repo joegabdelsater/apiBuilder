@@ -63,7 +63,7 @@ const buildItem = (item) => {
 const addCommand = () => {
     var data = fs.readFileSync('../package.json', 'utf-8');
 
-    const commad = `
+    const command = `
     "scripts": {
         "yllw-build" : "node ./node_modules/index.js",
     `;
@@ -71,7 +71,7 @@ const addCommand = () => {
   
     fs.writeFileSync('../package.json', newValue, 'utf-8');
   
-    console.log('readFileSync complete');
+    console.log('Added command to package.json');
 }
 
 buildItem(item);
