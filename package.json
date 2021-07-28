@@ -1,13 +1,13 @@
 {
-  "name": "api-builder",
+  "name": "yllw-postman-to-functions",
   "version": "1.0.0",
-  "description": "",
+  "description": "A package which transforms your Postman collection in to javascript files and functions invoked using axios library",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build" : "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Joe Abdel Sater",
   "license": "ISC"
 }
