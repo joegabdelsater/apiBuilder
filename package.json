@@ -1,6 +1,6 @@
 {
   "name": "yllw-postman-to-functions",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A package which transforms your Postman collection in to javascript files and functions invoked using axios library",
   "main": "index.js",
   "scripts": {

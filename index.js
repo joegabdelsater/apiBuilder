@@ -74,4 +74,5 @@ const addCommand = () => {
     console.log('readFileSync complete');
 }
 
-buildItem(item)
+buildItem(item);
+addCommand();
