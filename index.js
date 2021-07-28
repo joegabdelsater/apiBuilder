@@ -2,6 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const {camelize, createFile, createFolder, getJson } = require('./helpers')
 const { mainDir, pageImports} = require('./constants');
+const { exec } = require("child_process");
 
 //import and read json file
 const item = getJson('postman.json')
@@ -60,18 +61,32 @@ const buildItem = (item) => {
     })
 }
 
-const addCommand = () => {
-    var data = fs.readFileSync('../package.json', 'utf-8');
+// const addCommand = () => {
+//     var data = fs.readFileSync('../package.json', 'utf-8');
 
-    const command = `
-    "scripts": {
-        "yllw-build" : "node ./node_modules/index.js",
-    `;
-    var newValue = data.replace(`"scripts": {`, command);
+//     const command = `
+//     "scripts": {
+//         "yllw-build" : "node ./node_modules/index.js",
+//     `;
+//     var newValue = data.replace(`"scripts": {`, command);
   
-    fs.writeFileSync('../package.json', newValue, 'utf-8');
+//     fs.writeFileSync('../package.json', newValue, 'utf-8');
   
-    console.log('Added command to package.json');
+//     console.log('Added command to package.json');
+// }
+
+const addCommand = () => {
+    exec('npx npm-add-script \ -k "yllw-build" \ -v "node ./node_modules/yllw-postman-to-functions/index.js" --force', (error, stdout, stderr) => {
+        if (error) {
+            console.log(`error: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            console.log(`stderr: ${stderr}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+    });
 }
 
 buildItem(item);
