@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const {camelize, createFile, createFolder, getJson } = require('./helpers')
-const { mainDir, pageImports} = require('./constants');
+const { mainDir, pageImports, urlPageContent} = require('./constants');
 
 //import and read json file
 const item = getJson('postman.json')
@@ -61,6 +61,6 @@ const buildItem = (item) => {
 
 //create the main directory on the root level
 createFolder(mainDir);
-
+createFile(mainDir ,'url', urlPageContent)
 buildItem(item);
 
