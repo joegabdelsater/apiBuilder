@@ -2,12 +2,10 @@ const http = require('http');
 const fs = require('fs');
 const {camelize, createFile, createFolder, getJson } = require('./helpers')
 const { mainDir, pageImports} = require('./constants');
-// const { exec } = require("child_process");
 
 //import and read json file
 const item = getJson('postman.json')
-//create the main directory on the root level
-createFolder(mainDir)
+
 
 const paramSupport = ["POST", "UPDATE"];
 const build = (dir, outerLayer) => {
@@ -61,33 +59,8 @@ const buildItem = (item) => {
     })
 }
 
-// const addCommand = () => {
-//     var data = fs.readFileSync('../package.json', 'utf-8');
-
-//     const command = `
-//     "scripts": {
-//         "yllw-build" : "node ./node_modules/index.js",
-//     `;
-//     var newValue = data.replace(`"scripts": {`, command);
-  
-//     fs.writeFileSync('../package.json', newValue, 'utf-8');
-  
-//     console.log('Added command to package.json');
-// }
-
-// const addCommand = () => {
-//     exec('', (error, stdout, stderr) => {
-//         if (error) {
-//             console.log(`error: ${error.message}`);
-//             return;
-//         }
-//         if (stderr) {
-//             console.log(`stderr: ${stderr}`);
-//             return;
-//         }
-//         console.log(`stdout: ${stdout}`);
-//     });
-// }
+//create the main directory on the root level
+createFolder(mainDir);
 
 buildItem(item);
-// addCommand();
+
