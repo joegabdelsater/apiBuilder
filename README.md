@@ -16,7 +16,9 @@ Right inside the folder you will notice a file which exports the URL constant, f
 
 # IMPORTANT NOTES:
 1- Make sure that your postman collection has your based URL as an environment variable, otherwise your endpoints might create the base url statically.
+
 2- If your postman collection contains too many nested folders, make sure you fix the path the url file which contains your base url
+
 3- Unfortunately at this stage URL parameters are not taken into account, these will have to be replaced manually, example:
 ```
 export const getCategoryProducts = () => {

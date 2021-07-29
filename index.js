@@ -61,6 +61,8 @@ const buildItem = (item) => {
 
 //create the main directory on the root level
 createFolder(mainDir);
+//create the url.js folder
 createFile(mainDir ,'url', urlPageContent)
+//build everything
 buildItem(item);
 
