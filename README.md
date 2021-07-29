@@ -1,8 +1,12 @@
 # Description
 An npm package for transforming your postman collection into JavaScript files and functions that you used to code manually.
-This package uses and automatically installs the Axios Http library.
+This package uses the Axios Http library.
 
 # Installation
+if you wish to install the axios library:
+`npm i yllw-postman-to-functions axios`
+
+Or if you already have it installed use:
 `npm i yllw-postman-to-functions`
 
 # Usage
